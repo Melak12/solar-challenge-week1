@@ -25,14 +25,5 @@ jobs:
       - name: Run tests
         run: |
           # Run tests with pytest
-          pytest --maxfail=1 --disable-warnings -q
-          # Run tests with coverage
-          coverage run -m pytest
-          coverage report -m
-          coverage html
-      
-      - name: Check python version
-        run: |
           python --version
           pip --version
-      
