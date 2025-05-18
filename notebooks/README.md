@@ -27,4 +27,28 @@ The results of these steps are available in the respective notebooks:
 
 The cleaned data produced from this process powers the interactive Streamlit dashboard in this project.
 
+## Refactoring & Modularity Improvements
+
+To enhance code reusability, clarity, and maintainability across all EDA notebooks, the following refactoring steps were implemented:
+
+- **Utility Module Creation:**
+  - A shared `utils.py` file was created in the `notebooks/` directory.
+  - This module contains reusable functions for data loading (`load_data`), cleaning (`clean_data`), saving cleaned data (`save_clean_data`), and common plotting routines (`plot_time_series`, `plot_monthly_boxplots`, `plot_hourly_trends`).
+
+- **Consistent Data Access:**
+  - All data loading and saving operations use the `data/` folder as the base directory, so only filenames are needed in client code.
+
+- **Notebook Refactoring:**
+  - Each country-specific notebook (`benin_eda.ipynb`, `sierraleone_eda.ipynb`, `togo_eda.ipynb`) now imports and uses these utility functions.
+  - Data loading, cleaning, and saving are performed via the shared utilities, reducing code duplication.
+  - Plotting of time series, monthly boxplots, and hourly trends is handled by the modular plotting functions.
+
+- **Improved Summary Statistics:**
+  - The summary statistics section in each notebook now excludes the `Timestamp` column from categorical (object) column descriptions, ensuring only relevant columns are summarized.
+
+- **Scalability:**
+  - This modular approach makes it easy to extend or update the analysis for new datasets or additional EDA steps, as changes only need to be made in the utility module.
+
+These improvements support a more robust, maintainable, and scalable workflow for solar data analysis and reporting.
+
 ---
