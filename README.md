@@ -41,4 +41,3 @@ This project includes an interactive dashboard for visualizing solar data insigh
 - Table of top 5 regions by average GHI
 - Interactive slider to filter data by GHI range
 
----
