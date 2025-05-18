@@ -9,21 +9,48 @@ st.title("Solar Data Insights Dashboard")
 # Sidebar for country selection
 countries = utils.get_countries()
 country = st.sidebar.selectbox("Select Country", countries)
+st.markdown(f"**Country:** {country}")
+
+# Use Streamlit caching for data loading
+@st.cache_data
+def load_country_data_cached(country: str):
+    return utils.load_country_data(country)
 
 # Load data
-df = utils.load_country_data(country)
+df = load_country_data_cached(country)
 
 # Identify GHI column
 ghi_col = utils.get_ghi_column(df)
 
-# Region column guess (can be improved)
+# Region column guess (improved for plotting)
 region_col = None
 for col in df.columns:
     if "region" in col.lower() or "site" in col.lower() or "location" in col.lower():
         region_col = col
         break
 if not region_col:
-    region_col = df.columns[0]  # fallback
+    # If only Timestamp is available, extract Month for grouping
+    if "timestamp" in df.columns[0].lower():
+        region_col = "Month"
+        df[region_col] = pd.to_datetime(df[df.columns[0]]).dt.strftime("%Y-%m")
+    else:
+        region_col = df.columns[0]  # fallback
+
+# Add Month column for filtering if Timestamp exists
+if "timestamp" in df.columns[0].lower():
+    df["Month"] = pd.to_datetime(df[df.columns[0]]).dt.to_period("M").astype(str)
+
+# Month range selector in sidebar
+if "Month" in df.columns:
+    months = sorted(df["Month"].unique())
+    month_range = st.sidebar.select_slider(
+        "Select Month Range",
+        options=months,
+        value=(months[0], months[-1])
+    )
+    # Filter by selected month range
+    month_mask = (df["Month"] >= month_range[0]) & (df["Month"] <= month_range[1])
+    df = df[month_mask]
 
 # Limit number of regions for plotting (top 10 by count)
 region_counts = df[region_col].value_counts().head(10).index
