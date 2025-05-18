@@ -1,5 +1,5 @@
 # Solar Challenge Week 1 - Solar Data Discovery
-A project for learning Git and CI/CD.
+As part of 10 Academy training, This is a challenge project which is focused on understanding, exploring, and analyzing solar farm data found in Benin, Sierra Leone, and Togo. 
 
 ### Business Objective
 MoonLight Energy Solutions aims to develop a strategic approach to significantly enhance its operational efficiency and sustainability through targeted solar investments. As an Analytics Engineer at MoonLight Energy Solutions, your task is to perform a quick analysis of an environmental measurement provided by the engineering team and translate your observation as a strategy report. Your analysis should focus on identifying key trends and learn valuable insights that will support your data-driven case - your recommendation based on the statistical analysis and EDA.  In particular, your analysis and recommendation must present a strategy focusing on identifying high-potential regions for solar installation that align with the company's long-term sustainability goals. Your report should provide an insight to help realize the overarching objectives of MoonLight Energy Solutions.
