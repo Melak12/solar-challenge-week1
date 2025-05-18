@@ -41,3 +41,19 @@ This project includes an interactive dashboard for visualizing solar data insigh
 - Table of top 5 regions by average GHI
 - Interactive slider to filter data by GHI range
 
+## Dashboard Screenshots
+
+Below are example screenshots of the Streamlit dashboard for each country:
+
+**Benin**
+
+![Benin Dashboard](dashboard_screenshots/dashboard_benin.jpg)
+
+**Sierra Leone**
+
+![Sierra Leone Dashboard](dashboard_screenshots/dashboard_serraleone.jpg)
+
+**Togo**
+
+![Togo Dashboard](dashboard_screenshots/dashboard_togo.jpg)
+
