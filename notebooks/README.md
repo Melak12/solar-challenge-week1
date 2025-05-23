@@ -51,4 +51,29 @@ To enhance code reusability, clarity, and maintainability across all EDA noteboo
 
 These improvements support a more robust, maintainable, and scalable workflow for solar data analysis and reporting.
 
----
+## Comprehensive Cross-Country Analysis Enhancements (2025)
+
+To provide deeper insights and more robust recommendations for solar installation, the cross-country analysis was significantly enhanced:
+
+- **Advanced Statistical Analysis:**
+  - Added Levene's test for homogeneity of variance across countries.
+  - Performed pairwise t-tests and Mann-Whitney U tests for GHI between all country pairs.
+  - Included both parametric (ANOVA) and non-parametric (Kruskal–Wallis) tests for group comparisons.
+
+- **Rich Visualizations:**
+  - Added KDE (density) and violin plots for GHI, DNI, and DHI to visualize the full distribution for each country.
+  - Monthly GHI trends are now compared across countries in a single plot.
+  - Bar charts and boxplots provide clear visual summaries of key metrics.
+
+- **Regional and Temporal Insights:**
+  - Top regions/sites by average GHI are identified and compared for each country.
+  - Monthly and regional trends are highlighted to support location-specific recommendations.
+
+- **Strategic Recommendations:**
+  - The notebook concludes with actionable, data-driven recommendations for optimal solar installation locations, based on the enhanced analysis.
+
+- **Modular, Maintainable Code:**
+  - All data loading and utility functions are imported from a shared `notebooks/utils.py` module, ensuring consistency and reusability.
+  - The code is structured for easy extension with new metrics, tests, or visualizations.
+
+These improvements make the analysis more comprehensive, statistically robust, and actionable for decision-makers in solar energy planning.
